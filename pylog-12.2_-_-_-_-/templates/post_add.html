@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="navbar">
+        <span> 글작성 </span>
+
+    </div>
+    <div id="post-add" style="position: absolute; top: 100px">        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <label>제목</label>
+                <input name="title" type="text" >
+            </div>
+            <div>
+                <label>내용</label>
+            </div>        
+            <textarea name="content"></textarea>   
+            <div>
+                <label>썸네일</label>
+                <input name="thumbnail" type="file">
+            </div>         
+            <button type="submit" class="btn btn-primary">작성</button>
+        </form>
+    </div>
+</body>
+</html>
